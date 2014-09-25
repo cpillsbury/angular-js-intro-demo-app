@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 6: Make a service that provides the feeds list currently defined in the controller. Inject that
-    service into the controller to initialize the feeds list. Make a second service that defines
-    the remove feed/feed entry functionality for your controller and inject it into the controller, too.
+<!-- Exercise 7: Add an input to enter the URL to an RSS feed (represented in XML).
+    Make an async service that takes a string representation of a URL to an RSS feed, sends it to
+    Google's feed parser (which converts it to a JSON format), and returns the value. Add a button next to your
+    input that will make the aforementioned request and add the result to your feeds list. (NOTE: Since this is
+    fairly complex, I've added some of the basic definition of the service for you. - CJP)
 -->
 
 <head>
