@@ -57,11 +57,18 @@ feedsApp.factory('FeedsFactory', function() {
     return feeds;
 });
 
-feedsApp.controller('FeedsCtrl', ['$scope', 'RemoveItemsService', 'FeedsFactory',
-    function FeedsCtrl($scope, RemoveItemsService, feeds) {
+feedsApp.controller('FeedsCtrl', ['$scope', 'RemoveItemsService', 'FeedsService', 'FeedsFactory',
+    function FeedsCtrl($scope, RemoveItemsService, FeedsService, feeds) {
         var feedModel = {};
 
         feedModel.feeds = feeds;
+
+        function addFeed(feedUrl) {
+            FeedsService.getFeed(feedUrl).then(function(response) {
+                var feed = response.data.responseData.feed;
+                $scope.feedModel.feeds.push(response.data.responseData.feed);
+            });
+        }
 
         function getSelectedFeedClass(feed, selectedFeed) {
             var feedClass = (feed == selectedFeed) ? 'selectedFeed' : '';
@@ -84,4 +91,5 @@ feedsApp.controller('FeedsCtrl', ['$scope', 'RemoveItemsService', 'FeedsFactory'
         $scope.checkSelectedFeedClass = checkSelectedFeedClass;
         $scope.removeFeed = removeFeed;
         $scope.removeFeedEntry = removeFeedEntry;
+        $scope.addFeed = addFeed;
 }]);

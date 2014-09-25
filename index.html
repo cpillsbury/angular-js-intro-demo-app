@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 7: Add an input to enter the URL to an RSS feed (represented in XML).
-    Make an async service that takes a string representation of a URL to an RSS feed, sends it to
-    Google's feed parser (which converts it to a JSON format), and returns the value. Add a button next to your
-    input that will make the aforementioned request and add the result to your feeds list. (NOTE: Since this is
-    fairly complex, I've added some of the basic definition of the service for you. - CJP)
+<!-- Exercise 8: In the service you've created to return your feeds, add two methods, getSavedFeeds() and saveFeeds(feeds).
+    Instead of simply returning the feeds object, make getSavedFeeds() return an object that is initialized with
+    the currently-defined feeds. Make saveFeeds(feeds) update the feeds object stored in the service with the feeds passed
+    in.
+    In your controller, add a watcher that watches the feeds collection and calls saveFeed() whenever it changes.
 -->
 
 <head>
@@ -46,7 +46,10 @@
                 </td>
             </tr>
         </table>
-
+        <div>
+            Add Feed:
+            <input type="text" ng-model="feedModel.feedUrl" />
+            <button ng-click="addFeed(feedModel.feedUrl)">Add</button></div>
         <div>
             Selected Feed: <br>
             Title: {{feedModel.selectedFeed.title}} <br>
