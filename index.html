@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 3.5: Add the following functionality: If you click on the title of a feed item, it
-    will updated a "selectedFeed" property. Display the selected feed information (title, link, description,
-    and entry count) below your list of feeds. Add an input so that you can modify the description of the selectedFeed.
+<!-- Exercise 4: Create an Angular Controller. Move the data defined in ng-init into the controller. Move
+    the ng-click code into a method defined in the controller. In the new click handler method, make it
+    update the class on the selected item's row so it displays that row in a different color (hint: define a class
+    selector in CSS).
 -->
 
 <head>
@@ -64,6 +65,7 @@
     <input type="text" ng-model="feedModel.search.description" />
     <table border="1">
         <tr>
+            <th>Feed #</th>
             <th>Title</th>
             <th>Link</th>
             <th>Description</th>
@@ -71,12 +73,20 @@
         </tr>
         <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search">
             <td>{{ $index }}</td>
-            <td>{{ feed.title }}</td>
+            <td ng-click="feedModel.selectedFeed = feed">{{ feed.title }}</td>
             <td>{{ feed.link }}</td>
             <td>{{ feed.description }}</td>
-            <td>{{ feed.length }}</td>
+            <td>{{ feed.entries.length }}</td>
         </tr>
     </table>
+
+    <div>
+        Selected Feed: <br>
+        Title: {{feedModel.selectedFeed.title}} <br>
+        Link: {{feedModel.selectedFeed.link}} <br>
+        Description: <input type="text" ng-model="feedModel.selectedFeed.description"> <br>
+        Entries: {{feedModel.selectedFeed.entries.length}} <br>
+    </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.min.js"></script>
