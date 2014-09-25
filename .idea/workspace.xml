@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="800410a5-4c6f-4166-9405-c7af5e967cd5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/feedsApp.js" afterPath="$PROJECT_DIR$/feedsApp.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FeedsCtrl.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,8 +30,20 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="18" selection-start="151" selection-end="151" vertical-scroll-proportion="0.129683" vertical-offset="0" max-vertical-offset="1050">
+            <state line="2" column="19" selection-start="42" selection-end="42" vertical-scroll-proportion="0.08645533" vertical-offset="0" max-vertical-offset="390">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FeedsCtrl.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FeedsCtrl.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="28" selection-start="249" selection-end="249" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="705">
+              <folding>
+                <element signature="n#style#0;n#button#0;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#td#6;n#tr#1;n#table#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,6 +83,7 @@
         <option value="$PROJECT_DIR$/index2.html" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/feedsApp.js" />
+        <option value="$PROJECT_DIR$/FeedsCtrl.html" />
         <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
@@ -304,9 +317,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FeedsCtrl.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="249" selection-end="249" vertical-scroll-proportion="-5.625" vertical-offset="0" max-vertical-offset="705">
+          <folding>
+            <element signature="n#style#0;n#button#0;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#td#6;n#tr#1;n#table#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="18" selection-start="151" selection-end="151" vertical-scroll-proportion="0.129683" vertical-offset="0" max-vertical-offset="1050">
+        <state line="2" column="19" selection-start="42" selection-end="42" vertical-scroll-proportion="0.08645533" vertical-offset="0" max-vertical-offset="390">
           <folding />
         </state>
       </provider>

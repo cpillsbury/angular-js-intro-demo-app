@@ -1,0 +1,42 @@
+Search:
+<input type="text" ng-model="feedModel.search.description" />
+<table border="1">
+    <tr>
+        <th>Feed #</th>
+        <th>Title</th>
+        <th>Link</th>
+        <th>Description</th>
+        <th>Entries</th>
+        <th>Remove Feed</th>
+        <th>Remove Feed Entry</th>
+    </tr>
+    <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search"
+        ng-class="checkSelectedFeedClass(feed)">
+        <td>{{ $index }}</td>
+        <td ng-click="feedModel.selectedFeed = feed">{{ feed.title }}</td>
+        <td>{{ feed.link }}</td>
+        <td>{{ feed.description }}</td>
+        <td>{{ feed.entries.length }}</td>
+        <td>
+            <button style="width:100%" ng-click="removeFeed(feed)">
+                - feed
+            </button>
+        </td>
+        <td>
+            <button style="width:100%" ng-click="removeFeedEntry(feed.entries)">
+                - entry
+            </button>
+        </td>
+    </tr>
+</table>
+<div>
+    Add Feed:
+    <input type="text" ng-model="feedModel.feedUrl" />
+    <button ng-click="addFeed(feedModel.feedUrl)">Add</button></div>
+<div>
+    Selected Feed: <br>
+    Title: {{feedModel.selectedFeed.title}} <br>
+    Link: {{feedModel.selectedFeed.link}} <br>
+    Description: <input type="text" ng-model="feedModel.selectedFeed.description"> <br>
+    Entries: {{feedModel.selectedFeed.entries.length}} <br>
+</div>
