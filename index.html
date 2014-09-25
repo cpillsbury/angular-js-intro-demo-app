@@ -1,95 +1,49 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 4: Create an Angular Controller. Move the data defined in ng-init into the controller. Move
-    the ng-click code into a method defined in the controller. In the new click handler method, make it
-    update the class on the selected item's row so it displays that row in a different color (hint: define a class
-    selector in CSS).
+<!-- Exercise 5: Add buttons next to each feed item that allows you to remove it from the list. Add a second
+    button that allows you to remove the last feed entry from the list of entries for a given feed item.
 -->
 
 <head>
     <title></title>
     <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css">
-    <script>
-        var dummyData =
-        [
-            {
-                feedUrl: 'http://econlog.econlib.org/index.xml',
-                title: 'EconLog',
-                link: 'http://econlog.econlib.org/',
-                description: 'Some Economics Blog',
-                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
-            },
-            {
-                feedUrl: 'http://feeds.feedburner.com/EconomistsView',
-                title: 'Economist\'s View',
-                link: 'http://economistsview.typepad.com/economistsview/',
-                description: 'Some Other Economics Blog',
-                entries: [ { title: 'q' }, { title: 'e' }, { title: 'd' } ]
-            },
-            {
-                feedUrl: 'http://www.visualizing.org/rss.xml',
-                title: 'Visualizing.org News and Visualizations Feed',
-                link: 'http://www.visualizing.org',
-                description: 'Visualizations, News, and Challenges from Visualizing.org',
-                entries: [ { title: 's' }, { title: 'o' }, { title: 's' } ]
-            }
-        ];
-    </script>
 </head>
 
-<body ng-app="" ng-init="feedModel.feeds = [
-            {
-                feedUrl: 'http://feeds.feedburner.com/EconomistsView',
-                title: 'Economist\'s View',
-                link: 'http://economistsview.typepad.com/economistsview/',
-                description: 'Some Other Economics Blog',
-                entries: [ { title: 'q' }, { title: 'e' }, { title: 'd' } ]
-            },
-            {
-                feedUrl: 'http://econlog.econlib.org/index.xml',
-                title: 'EconLog',
-                link: 'http://econlog.econlib.org/',
-                description: 'Some Economics Blog',
-                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
-            },
-            {
-                feedUrl: 'http://www.visualizing.org/rss.xml',
-                title: 'Visualizing.org News and Visualizations Feed',
-                link: 'http://www.visualizing.org',
-                description: 'Visualizations, News, and Challenges from Visualizing.org',
-                entries: [ { title: 's' }, { title: 'o' }, { title: 's' } ]
-            }
-        ]">
-    Search:
-    <input type="text" ng-model="feedModel.search.description" />
-    <table border="1">
-        <tr>
-            <th>Feed #</th>
-            <th>Title</th>
-            <th>Link</th>
-            <th>Description</th>
-            <th>Entries</th>
-        </tr>
-        <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search">
-            <td>{{ $index }}</td>
-            <td ng-click="feedModel.selectedFeed = feed">{{ feed.title }}</td>
-            <td>{{ feed.link }}</td>
-            <td>{{ feed.description }}</td>
-            <td>{{ feed.entries.length }}</td>
-        </tr>
-    </table>
+<body ng-app="feedsApp">
+    <div ng-controller="FeedsCtrl">
+        Search:
+        <input type="text" ng-model="feedModel.search.description" />
+        <table border="1">
+            <tr>
+                <th>Feed #</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Description</th>
+                <th>Entries</th>
+            </tr>
+            <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search"
+                ng-class="checkSelectedFeedClass(feed)">
+                <td>{{ $index }}</td>
+                <td ng-click="feedModel.selectedFeed = feed">{{ feed.title }}</td>
+                <td>{{ feed.link }}</td>
+                <td>{{ feed.description }}</td>
+                <td>{{ feed.entries.length }}</td>
+            </tr>
+        </table>
 
-    <div>
-        Selected Feed: <br>
-        Title: {{feedModel.selectedFeed.title}} <br>
-        Link: {{feedModel.selectedFeed.link}} <br>
-        Description: <input type="text" ng-model="feedModel.selectedFeed.description"> <br>
-        Entries: {{feedModel.selectedFeed.entries.length}} <br>
+        <div>
+            Selected Feed: <br>
+            Title: {{feedModel.selectedFeed.title}} <br>
+            Link: {{feedModel.selectedFeed.link}} <br>
+            Description: <input type="text" ng-model="feedModel.selectedFeed.description"> <br>
+            Entries: {{feedModel.selectedFeed.entries.length}} <br>
+        </div>
     </div>
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.min.js"></script>
+<script type="text/javascript" src="./feedsApp.js"></script>
 <link data-require="fontawesome@*" data-semver="4.1.0" rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
 </body>
 
