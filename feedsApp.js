@@ -54,14 +54,35 @@ feedsApp.factory('FeedsFactory', function() {
             }
         ];
 
-    return feeds;
+    function getSavedFeeds() {
+        console.log("RETREIVING SAVED FEEDS");
+        return feeds;
+    }
+
+    function saveFeeds(newFeeds) {
+        console.log("SAVING NEW FEEDS");
+        feeds = newFeeds;
+    }
+
+    return {
+        getSavedFeeds: getSavedFeeds,
+        saveFeeds: saveFeeds
+    };
 });
 
 feedsApp.controller('FeedsCtrl', ['$scope', 'RemoveItemsService', 'FeedsService', 'FeedsFactory',
-    function FeedsCtrl($scope, RemoveItemsService, FeedsService, feeds) {
+    function FeedsCtrl($scope, RemoveItemsService, FeedsService, FeedsFactory) {
         var feedModel = {};
 
-        feedModel.feeds = feeds;
+        feedModel.feeds = FeedsFactory.getSavedFeeds();
+
+        $scope.$watchCollection('feedModel.feeds', function(newFeeds, oldFeeds){
+            if (newFeeds === oldFeeds){
+                return;
+            }
+
+            FeedsFactory.saveFeeds(newFeeds);
+        });
 
         function addFeed(feedUrl) {
             FeedsService.getFeed(feedUrl).then(function(response) {
