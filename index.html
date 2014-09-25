@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<!-- Exercise 1:
+
+    Create an Angular app that displays the feed's title, the website's link associated with the feed, the description,
+    and the number of feed entries. Add an input that allows you to modify the feed's description.
+-->
+
+<head>
+    <title></title>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var dummyData =
+        {
+            feed:
+            {
+                feedUrl: "http://econlog.econlib.org/index.xml",
+                title: "EconLog",
+                link: "http://econlog.econlib.org/",
+                description: "",
+                entries: [
+                    {
+                        title: "Piketty, Piketty, Piketty, Piketty, by Russ Roberts",
+                        link: "http://econlog.econlib.org/archives/2014/09/piketty_piketty.html",
+                        publishedDate: "Wed, 24 Sep 2014 12:52:47 -0700"
+                    },
+                    {
+                        title: "Richard McKenzie on Foreign Export Subsidies, by David Henderson",
+                        link: "http://econlog.econlib.org/archives/2014/09/richard_mckenzi.html",
+                        publishedDate: "Wed, 24 Sep 2014 09:44:26 -0700"
+                    },
+                    {
+                        title: "Social Desirability Bias and Abortion, by Bryan Caplan",
+                        link: "http://econlog.econlib.org/archives/2014/09/social_desirabi_2.html",
+                        publishedDate: "Tue, 23 Sep 2014 22:03:41 -0700"
+                    }
+                ]
+            }
+        };
+    </script>
+</head>
+
+<body>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.min.js"></script>
+<link data-require="fontawesome@*" data-semver="4.1.0" rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+</body>
+
+</html>
