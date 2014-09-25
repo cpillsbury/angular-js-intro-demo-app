@@ -33,7 +33,6 @@ feedsApp.controller('FeedsCtrl', ['$scope', function FeedsCtrl($scope) {
 
     function getSelectedFeedClass(feed, selectedFeed) {
         var feedClass = (feed == selectedFeed) ? 'selectedFeed' : '';
-        console.log(feedClass);
         return feedClass;
     };
 
@@ -41,6 +40,23 @@ feedsApp.controller('FeedsCtrl', ['$scope', function FeedsCtrl($scope) {
         return getSelectedFeedClass(feed, $scope.feedModel.selectedFeed);
     };
 
+    function removeFeedFromFeeds(feed, feeds) {
+        var index = feeds.indexOf(feed);
+        feeds.splice(index, 1);
+    }
+
+    function removeFeed(feed) {
+        removeFeedFromFeeds(feed, $scope.feedModel.feeds)
+    }
+
+    function removeFeedEntry(items) {
+        if (items != null && items.length > 0) {
+            items.pop();
+        }
+    }
+
     $scope.feedModel = feedModel;
     $scope.checkSelectedFeedClass = checkSelectedFeedClass;
+    $scope.removeFeed = removeFeed;
+    $scope.removeFeedEntry = removeFeedEntry;
 }]);

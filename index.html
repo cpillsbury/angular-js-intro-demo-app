@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 5: Add buttons next to each feed item that allows you to remove it from the list. Add a second
-    button that allows you to remove the last feed entry from the list of entries for a given feed item.
+<!-- Exercise 6: Make a service that provides the feeds list currently defined in the controller. Inject that
+    service into the controller to initialize the feeds list. Make a second service that defines
+    the remove feed/feed entry functionality for your controller and inject it into the controller, too.
 -->
 
 <head>
@@ -21,6 +22,8 @@
                 <th>Link</th>
                 <th>Description</th>
                 <th>Entries</th>
+                <th>Remove Feed</th>
+                <th>Remove Feed Entry</th>
             </tr>
             <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search"
                 ng-class="checkSelectedFeedClass(feed)">
@@ -29,6 +32,16 @@
                 <td>{{ feed.link }}</td>
                 <td>{{ feed.description }}</td>
                 <td>{{ feed.entries.length }}</td>
+                <td>
+                    <button style="width:100%" ng-click="removeFeed(feed)">
+                        - feed
+                    </button>
+                </td>
+                <td>
+                    <button style="width:100%" ng-click="removeFeedEntry(feed.entries)">
+                        - entry
+                    </button>
+                </td>
             </tr>
         </table>
 
