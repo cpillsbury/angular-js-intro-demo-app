@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="800410a5-4c6f-4166-9405-c7af5e967cd5" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="angular-js-intro-demo-app.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +29,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="98" selection-start="139" selection-end="139" vertical-scroll-proportion="0.17291066" vertical-offset="0" max-vertical-offset="1335">
+            <state line="4" column="119" selection-start="348" selection-end="348" vertical-scroll-proportion="-2.3285303" vertical-offset="868" max-vertical-offset="1365">
               <folding />
             </state>
           </provider>
@@ -243,7 +244,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="98" selection-start="139" selection-end="139" vertical-scroll-proportion="0.17291066" vertical-offset="0" max-vertical-offset="1335">
+        <state line="4" column="119" selection-start="348" selection-end="348" vertical-scroll-proportion="-2.3285303" vertical-offset="868" max-vertical-offset="1365">
           <folding />
         </state>
       </provider>

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 3:
-
-    Sort the data by title. Add a search input that searches based on the description of the feed.
+<!-- Exercise 3.5: Add the following functionality: If you click on the title of a feed item, it
+    will updated a "selectedFeed" property. Display the selected feed information (title, link, description,
+    and entry count) below your list of feeds. Add an input so that you can modify the description of the selectedFeed.
 -->
 
 <head>
@@ -39,18 +39,18 @@
 
 <body ng-app="" ng-init="feedModel.feeds = [
             {
-                feedUrl: 'http://econlog.econlib.org/index.xml',
-                title: 'EconLog',
-                link: 'http://econlog.econlib.org/',
-                description: 'Some Economics Blog',
-                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
-            },
-            {
                 feedUrl: 'http://feeds.feedburner.com/EconomistsView',
                 title: 'Economist\'s View',
                 link: 'http://economistsview.typepad.com/economistsview/',
                 description: 'Some Other Economics Blog',
                 entries: [ { title: 'q' }, { title: 'e' }, { title: 'd' } ]
+            },
+            {
+                feedUrl: 'http://econlog.econlib.org/index.xml',
+                title: 'EconLog',
+                link: 'http://econlog.econlib.org/',
+                description: 'Some Economics Blog',
+                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
             },
             {
                 feedUrl: 'http://www.visualizing.org/rss.xml',
@@ -60,6 +60,8 @@
                 entries: [ { title: 's' }, { title: 'o' }, { title: 's' } ]
             }
         ]">
+    Search:
+    <input type="text" ng-model="feedModel.search.description" />
     <table border="1">
         <tr>
             <th>Title</th>
@@ -67,7 +69,7 @@
             <th>Description</th>
             <th>Entries</th>
         </tr>
-        <tr ng-repeat="feed in feedModel.feeds">
+        <tr ng-repeat="feed in feedModel.feeds | orderBy:'title' | filter:feedModel.search">
             <td>{{ $index }}</td>
             <td>{{ feed.title }}</td>
             <td>{{ feed.link }}</td>
