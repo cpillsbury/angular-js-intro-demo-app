@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<!-- Exercise 1:
+<!-- Exercise 2:
 
-    Create an Angular app that displays the feed's title, the website's link associated with the feed, the description,
-    and the number of feed entries. Add an input that allows you to modify the feed's description.
+    Create an Angular app that displays the same data as before, but for each feed item in the list. In addition,
+    display the item number next to each feed item.
 -->
 
 <head>
@@ -12,30 +12,47 @@
     <link rel="stylesheet" href="style.css">
     <script>
         var dummyData =
-        {
-            feed:
+        [
             {
                 feedUrl: 'http://econlog.econlib.org/index.xml',
                 title: 'EconLog',
                 link: 'http://econlog.econlib.org/',
-                description: '',
-                entries: [
-                    {
-                        title: 'a'
-                    },
-                    {
-                        title: 'b'
-                    },
-                    {
-                        title: 'c'
-                    }
-                ]
+                description: 'Some Economics Blog',
+                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
+            },
+            {
+                feedUrl: 'http://feeds.feedburner.com/EconomistsView',
+                title: 'Economist\'s View',
+                link: 'http://economistsview.typepad.com/economistsview/',
+                description: 'Some Other Economics Blog',
+                entries: [ { title: 'q' }, { title: 'e' }, { title: 'd' } ]
+            },
+            {
+                feedUrl: 'http://www.visualizing.org/rss.xml',
+                title: 'Visualizing.org News and Visualizations Feed',
+                link: 'http://www.visualizing.org',
+                description: 'Visualizations, News, and Challenges from Visualizing.org',
+                entries: [ { title: 's' }, { title: 'o' }, { title: 's' } ]
             }
-        };
+        ];
     </script>
 </head>
 
-<body>
+<body ng-app="" ng-init="feedModel.feed =
+            {
+                feedUrl: 'http://econlog.econlib.org/index.xml',
+                title: 'EconLog',
+                link: 'http://econlog.econlib.org/',
+                description: 'Some Economics Blog',
+                entries: [ { title: 'a' }, { title: 'b' }, { title: 'c' } ]
+            }
+        ">
+    Title: {{ feedModel.feed.title }} <br>
+    Link: {{ feedModel.feed.link }} <br>
+    Description: {{ feedModel.feed.description }} <br>
+    Entries: {{ feedModel.feed.entries.length }} <br>
+
+    Update Description: <input type="text" ng-model="feedModel.feed.description">
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.min.js"></script>
